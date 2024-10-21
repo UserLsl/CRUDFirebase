@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1039119555200",
+    "project_id": "cadastro-5d089",
+    "storage_bucket": "cadastro-5d089.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1039119555200:android:c1002af8d42bb4ba6da465",
+        "android_client_info": {
+          "package_name": "com.example.cadastro"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmCHWsclpE3cOvh-BRwOj7HAnIoMOWEps"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1039119555200:android:205801520883bb936da465",
+        "android_client_info": {
+          "package_name": "com.example.crud"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmCHWsclpE3cOvh-BRwOj7HAnIoMOWEps"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
