@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:crud/model/livro.dart';
+import 'package:crud/novo_livro.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -55,14 +56,14 @@ class _ListaLivrosState extends State<ListaLivros> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Lista de Livros3'),
+        title: Text('Lista de Livros4'),
         centerTitle: true,
       ),
       body: ListaProdutos(),
 
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.orange,
-        onPressed: () {},
+        onPressed: () => _criarNovoProduto(context, Livro(null, '', '', '')),
         child: const Icon(Icons.add)
       ),
     );
@@ -92,6 +93,7 @@ class _ListaLivrosState extends State<ListaLivros> {
                         },
                       )
                     ],),
+                    onTap: () => _navegarParaProduto(context, items[index]),
                   );
                 },
               );
@@ -113,5 +115,17 @@ class _ListaLivrosState extends State<ListaLivros> {
     setState(() {
       items.removeAt(position);
     });
+  }
+
+   void _navegarParaProduto(BuildContext context, Livro livro) async {
+    await Navigator.push(context,
+      MaterialPageRoute(builder: (context) => NovoLivro(livro)),
+    );
+  }
+
+  void _criarNovoProduto(BuildContext context, Livro livro) async {
+    await Navigator.push(context,
+      MaterialPageRoute(builder: (context) => NovoLivro(Livro(null, '', '', ''))),
+    );
   }
 }
