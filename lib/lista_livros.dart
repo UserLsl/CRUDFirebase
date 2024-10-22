@@ -55,7 +55,7 @@ class _ListaLivrosState extends State<ListaLivros> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Lista de Livros2'),
+        title: Text('Lista de Livros3'),
         centerTitle: true,
       ),
       body: ListaProdutos(),
@@ -82,8 +82,16 @@ class _ListaLivrosState extends State<ListaLivros> {
                 itemCount: items.length,
                 itemBuilder: (context, index) {
                   return ListTile(
-                    title: Text(items[index].titulo ?? '',
-                    style: const TextStyle(fontSize: 22))
+                    title: Text(items[index].titulo ?? '', style: const TextStyle(fontSize: 22)),
+                    subtitle: Text(items[index].preco ?? '', style: const TextStyle(fontSize: 22)),
+                    leading: Column(children: [
+                      IconButton(
+                        icon: const Icon(Icons.delete_forever),
+                        onPressed: () {
+                          _deletaProduto(context, documentos[index], index);
+                        },
+                      )
+                    ],),
                   );
                 },
               );
@@ -97,5 +105,13 @@ class _ListaLivrosState extends State<ListaLivros> {
 
   Stream<QuerySnapshot> getListaProdutos() {
     return FirebaseFirestore.instance.collection('livros').snapshots();
+  }
+
+  void _deletaProduto(BuildContext context, DocumentSnapshot doc, int position) async {
+    db.collection("livros").doc(doc.id).delete();
+
+    setState(() {
+      items.removeAt(position);
+    });
   }
 }
